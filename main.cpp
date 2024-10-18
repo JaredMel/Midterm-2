@@ -242,12 +242,10 @@ public:
         //iterates through the list starting at the head
         while (current) {
             //prints nodes data
-            cout << current->name << " ";
+            cout << "       " << current->name << endl;
             //sets current to the next node
             current = current->next;
         }
-        //end line
-        cout << endl;
     }
     //the print_reverse method
     void print_reverse() {
@@ -288,6 +286,12 @@ public:
         //end line
         cout << endl;
     }
+
+    string returnHead() {
+        //creates current node and sets it to head
+        Node* current = head;
+        return head->name;
+    }
 };
 //the main function
 int main() {
@@ -320,13 +324,23 @@ int main() {
     {
         prob = rand() % 99;
         list.push_back(names[prob]);
-        cout << names[prob] << " joins "
+        cout << "   " << names[prob] << " joins the line" << endl;
+    }
+    cout << "Resulting line:" << endl;
+    list.print();
+
+    for (size_t i = 1; i < 20; i++)
+    {
+        cout << "Time step #" << i+1 << ":" << endl;
+        prob = rand() % 100 + 1;
+
+        if (prob <= 40)
+        {
+            list.returnHead()
+        }
+        
     }
     
-    
-    
-
-
     //returns 0
     return 0;
 }
