@@ -287,15 +287,13 @@ public:
         cout << endl;
     }
 
-    string returnHead() {
-        //creates current node and sets it to head
-        Node* current = head;
-        return head->name;
-    }
+    string returnHead() {return head->name;}
+    string returnTail() {return tail->name;}
 };
 //the main function
 int main() {
     int prob;
+    int ran;
     DoublyLinkedList list;
     ifstream ifs;
     string name;
@@ -322,9 +320,9 @@ int main() {
     cout << "Store opens:" << endl;
     for (size_t i = 0; i < 5; i++)
     {
-        prob = rand() % 99;
-        list.push_back(names[prob]);
-        cout << "   " << names[prob] << " joins the line" << endl;
+        ran = rand() % 99;
+        list.push_back(names[ran]);
+        cout << "   " << names[ran] << " joins the line" << endl;
     }
     cout << "Resulting line:" << endl;
     list.print();
@@ -336,7 +334,26 @@ int main() {
 
         if (prob <= 40)
         {
-            list.returnHead()
+            cout << list.returnHead() << " is served" << endl;
+            list.pop_front();
+        }
+
+        if (prob <= 60)
+        {
+            ran = rand() % 99;
+            list.push_back(names[ran]);
+            cout << "   " << names[ran] << " joins the line" << endl;
+        }
+        
+        if (prob <= 20)
+        {
+            cout << list.returnTail() << " (at the rear) left the line" << endl;
+            list.pop_back();
+        }
+        
+        if (prob <= 10)
+        {
+            
         }
         
     }
