@@ -293,13 +293,31 @@ int main() {
     int prob;
     DoublyLinkedList list;
     ifstream ifs;
+    string name;
 
     ifs.open("names.txt");
 
     if (ifs)
     {
+        for (size_t i = 0; i < 99; i++)
+        {
+            getline(ifs, name);
+            list.push_back(name);
+        }
+        ifs.close();
+    }
+    else
+    {
+        //prints and exits cause the file wasn't found
+        cout << "Error opening file" << endl;
+        exit(EXIT_FAILURE);
+    }
+    
+    for (size_t i = 0; i < 20; i++)
+    {
         
     }
+    
     
 
 
