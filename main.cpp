@@ -303,7 +303,7 @@ public:
                 //iterates to the next node
                 temp = temp->next;
         }
-        
+        return temp->name;
     }
 };
 //the main function
@@ -375,9 +375,18 @@ int main() {
         if (prob <= 10)
         {
             ran = rand() % count + 1;
-            cout << list.
+            cout << list.returnPos(ran) << " left the line" << endl;
+            list.delete_pos(ran);
+            count--;
         }
-        
+
+        if (prob <= 10)
+        {
+            ran = rand() % 99;
+            list.push_back(names[ran]);
+            cout << "   " << names[ran] << " (VIP) joins the line" << endl;
+            count++;
+        }
     }
     
     //returns 0
