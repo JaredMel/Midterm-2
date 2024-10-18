@@ -1,5 +1,6 @@
 #include <iostream>
 #include <fstream>
+#include <vector>
 using namespace std;
 //Declares and Initilizes variables
 const int MIN_NR = 10, MAX_NR = 99, MIN_LS = 5, MAX_LS = 20;
@@ -294,6 +295,7 @@ int main() {
     DoublyLinkedList list;
     ifstream ifs;
     string name;
+    vector<string> names;
 
     ifs.open("names.txt");
 
@@ -302,7 +304,7 @@ int main() {
         for (size_t i = 0; i < 99; i++)
         {
             getline(ifs, name);
-            list.push_back(name);
+            names.push_back(name);
         }
         ifs.close();
     }
@@ -312,11 +314,15 @@ int main() {
         cout << "Error opening file" << endl;
         exit(EXIT_FAILURE);
     }
-    
-    for (size_t i = 0; i < 20; i++)
+
+    cout << "Store opens:" << endl;
+    for (size_t i = 0; i < 5; i++)
     {
-        
+        prob = rand() % 99;
+        list.push_back(names[prob]);
+        cout << names[prob] << " joins "
     }
+    
     
     
 
