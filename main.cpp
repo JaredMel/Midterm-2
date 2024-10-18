@@ -289,6 +289,22 @@ public:
 
     string returnHead() {return head->name;}
     string returnTail() {return tail->name;}
+    string returnPos(int pos) {
+        //Creates a temp node and sets it to head
+        Node* temp = head;
+        //for loop that iterates in till i = pos
+        for (int i = 1; i < pos; i++){
+            //checks if it reached the end of the list
+            if (!temp) {
+                cout << "Position doesn't exist." << endl;
+                return;
+            }
+            else
+                //iterates to the next node
+                temp = temp->next;
+        }
+        
+    }
 };
 //the main function
 int main() {
@@ -298,6 +314,7 @@ int main() {
     ifstream ifs;
     string name;
     vector<string> names;
+    int count = 0;
 
     ifs.open("names.txt");
 
@@ -323,6 +340,7 @@ int main() {
         ran = rand() % 99;
         list.push_back(names[ran]);
         cout << "   " << names[ran] << " joins the line" << endl;
+        count++;
     }
     cout << "Resulting line:" << endl;
     list.print();
@@ -336,6 +354,7 @@ int main() {
         {
             cout << list.returnHead() << " is served" << endl;
             list.pop_front();
+            count--;
         }
 
         if (prob <= 60)
@@ -343,17 +362,20 @@ int main() {
             ran = rand() % 99;
             list.push_back(names[ran]);
             cout << "   " << names[ran] << " joins the line" << endl;
+            count++;
         }
         
         if (prob <= 20)
         {
             cout << list.returnTail() << " (at the rear) left the line" << endl;
             list.pop_back();
+            count--;
         }
         
         if (prob <= 10)
         {
-            
+            ran = rand() % count + 1;
+            cout << list.
         }
         
     }
